@@ -4256,3 +4256,183 @@ html { scroll-padding-top: 70px; }
 @media (max-width: 1023px) {
   .menu.solid .menu-in { padding: 14px 16px; }
 }
+
+/* ===== Cartas arrastáveis (porte do DraggableCardBody) ===== */
+.dragsec { position: relative; background: #fff; overflow: hidden; padding-top: 6rem; padding-bottom: 6rem; }
+.dragsec-head { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.dragsec-head .eyebrow { justify-content: center; }
+.dragsec-head h2 { margin: 0 0 16px; line-height: 1.2; }
+.dragsec-head p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink-500); }
+.dragsec-wrap { max-width: 72rem; margin: 3rem auto 0; padding-inline: 1.5rem; perspective: 3000px; }
+.dstage { position: relative; height: 40rem; }
+.dcard {
+  position: absolute; width: clamp(9.5rem, 19vw, 15.5rem); aspect-ratio: 3 / 4; padding: 0; overflow: hidden;
+  border-radius: 8px; background: #f3f0ea; box-shadow: 0 25px 50px -12px rgba(33, 36, 29, 0.35);
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; will-change: transform; transform-style: preserve-3d;
+}
+.dcard.is-dragging { cursor: grabbing; }
+.dcard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.dcard-cap { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 0.5rem; padding: 2.2rem 0.9rem 0.8rem; color: #fff; pointer-events: none; background: linear-gradient(180deg, rgba(20, 22, 17, 0) 0%, rgba(20, 22, 17, 0.62) 100%); }
+.dcard-cap span { font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; line-height: 1.1; }
+.dcard-cap small { font-size: 0.6875rem; letter-spacing: 0.12em; opacity: 0.85; }
+.dcard-glare { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.dcard:nth-child(1) { left: 3%; top: 8%; }
+.dcard:nth-child(2) { left: 22%; top: 44%; }
+.dcard:nth-child(3) { left: 41%; top: 5%; }
+.dcard:nth-child(4) { left: 60%; top: 42%; }
+.dcard:nth-child(5) { left: 78%; top: 7%; }
+@media (max-width: 799px) {
+  .dragsec { padding-top: 4rem; padding-bottom: 4rem; }
+  .dragsec-wrap { margin-top: 2rem; padding-inline: 1rem; }
+  .dstage { height: 36rem; }
+  .dcard { width: 44%; }
+  .dcard:nth-child(1) { left: 2%; top: 2%; }
+  .dcard:nth-child(2) { left: 52%; top: 10%; }
+  .dcard:nth-child(3) { left: 24%; top: 35%; }
+  .dcard:nth-child(4) { left: 2%; top: 62%; }
+  .dcard:nth-child(5) { left: 52%; top: 58%; }
+  .dcard-cap span { font-size: 0.8125rem; }
+}
+
+/* Menu no celular: categorias alinhadas à esquerda e barra/painel um pouco mais estreitos */
+@media (max-width: 1023px) {
+  .menu { padding-inline: 22px; }
+  .menu .menu-nav { align-items: flex-start; }
+  .menu .menu-nav a { align-items: flex-start; text-align: left; }
+}
+
+/* Inspiração: 8 cartas de peças (fotos de produto em fundo branco), em duas fileiras soltas */
+.dcard--product { background: #fff; box-shadow: 0 22px 44px -18px rgba(33, 36, 29, 0.32), 0 0 0 1px rgba(33, 36, 29, 0.06); }
+.dcard--product .dcard-cap { background: none; color: var(--ink-900); padding: 0.7rem 0.85rem; }
+.dcard--product .dcard-cap small { color: var(--ink-500); opacity: 1; }
+.dstage { height: 46rem; }
+.dcard:nth-child(1) { left: 1%; top: 3%; }
+.dcard:nth-child(2) { left: 25%; top: 7%; }
+.dcard:nth-child(3) { left: 50%; top: 2%; }
+.dcard:nth-child(4) { left: 75%; top: 6%; }
+.dcard:nth-child(5) { left: 11%; top: 50%; }
+.dcard:nth-child(6) { left: 36%; top: 54%; }
+.dcard:nth-child(7) { left: 60%; top: 49%; }
+.dcard:nth-child(8) { left: 78%; top: 53%; }
+@media (max-width: 799px) {
+  .dstage { height: 53rem; }
+  .dcard { width: 44%; }
+  .dcard:nth-child(1) { left: 2%; top: 0%; }
+  .dcard:nth-child(2) { left: 52%; top: 4%; }
+  .dcard:nth-child(3) { left: 4%; top: 24%; }
+  .dcard:nth-child(4) { left: 50%; top: 28%; }
+  .dcard:nth-child(5) { left: 2%; top: 48%; }
+  .dcard:nth-child(6) { left: 52%; top: 52%; }
+  .dcard:nth-child(7) { left: 4%; top: 71%; }
+  .dcard:nth-child(8) { left: 50%; top: 74%; }
+}
+@media (min-width: 800px) { .dcard:nth-child(8) { left: 76%; } }
+
+/* Inspiração: 9 cartas — desktop em 2 fileiras (5 + 4), celular em 5 fileiras desencontradas */
+@media (min-width: 800px) {
+  .dstage { height: 46rem; }
+  .dcard:nth-child(1) { left: 0%; top: 4%; }
+  .dcard:nth-child(2) { left: 19.5%; top: 8%; }
+  .dcard:nth-child(3) { left: 39%; top: 2%; }
+  .dcard:nth-child(4) { left: 58.5%; top: 7%; }
+  .dcard:nth-child(5) { left: 77%; top: 3%; }
+  .dcard:nth-child(6) { left: 9%; top: 51%; }
+  .dcard:nth-child(7) { left: 29%; top: 55%; }
+  .dcard:nth-child(8) { left: 49%; top: 50%; }
+  .dcard:nth-child(9) { left: 68%; top: 54%; }
+}
+@media (max-width: 799px) {
+  .dstage { height: 66rem; }
+  .dcard:nth-child(1) { left: 2%; top: 0%; }
+  .dcard:nth-child(2) { left: 52%; top: 2%; }
+  .dcard:nth-child(3) { left: 4%; top: 19.4%; }
+  .dcard:nth-child(4) { left: 50%; top: 21.3%; }
+  .dcard:nth-child(5) { left: 2%; top: 38.8%; }
+  .dcard:nth-child(6) { left: 52%; top: 40.7%; }
+  .dcard:nth-child(7) { left: 4%; top: 58.2%; }
+  .dcard:nth-child(8) { left: 50%; top: 60.1%; }
+  .dcard:nth-child(9) { left: 28%; top: 77.7%; }
+}
+@media (min-width: 800px) { .dcard:nth-child(1) { left: 1.5%; } .dcard:nth-child(5) { left: 76.5%; } }
+
+/* Inspiração: nome da peça no mesmo tamanho do número (11px) */
+.dcard-cap span, .dcard-cap small { font-size: 0.6875rem; line-height: 1.2; }
+@media (max-width: 799px) { .dcard-cap span, .dcard-cap small { font-size: 0.6875rem; } }
+
+/* Inspiração: cartas estilo polaroide, empilhadas num monte no centro (referência enviada) */
+.dcard--product {
+  width: clamp(10rem, 17vw, 15rem); aspect-ratio: auto; padding: 0.85rem 0.85rem 0;
+  background: #f6f5f2; border-radius: 6px;
+  box-shadow: 0 24px 48px -16px rgba(33, 36, 29, 0.28), 0 2px 6px rgba(33, 36, 29, 0.08);
+}
+.dcard--product img { position: relative; inset: auto; display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; }
+.dcard--product .dcard-cap { position: relative; justify-content: center; padding: 0.75rem 0.25rem 0.95rem; background: none; }
+.dcard--product .dcard-cap span { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; text-transform: none; color: rgba(33, 36, 29, 0.78); }
+.dcard--product .dcard-cap small { display: none; }
+@media (min-width: 800px) {
+  .dstage { height: 34rem; }
+  .dcard:nth-child(1) { left: 13%; top: 6%; }
+  .dcard:nth-child(2) { left: 23%; top: 24%; }
+  .dcard:nth-child(3) { left: 30%; top: 2%; }
+  .dcard:nth-child(4) { left: 40%; top: 16%; }
+  .dcard:nth-child(5) { left: 46%; top: 0%; }
+  .dcard:nth-child(6) { left: 52%; top: 20%; }
+  .dcard:nth-child(7) { left: 58%; top: 5%; }
+  .dcard:nth-child(8) { left: 34%; top: 28%; }
+  .dcard:nth-child(9) { left: 64%; top: 22%; }
+}
+@media (max-width: 799px) {
+  .dstage { height: 44rem; }
+  .dcard--product { width: 50%; padding: 0.6rem 0.6rem 0; }
+  .dcard--product .dcard-cap { padding: 0.55rem 0.2rem 0.7rem; }
+  .dcard--product .dcard-cap span { font-size: 0.75rem; }
+  .dcard:nth-child(1) { left: 4%; top: 1%; }
+  .dcard:nth-child(2) { left: 44%; top: 5%; }
+  .dcard:nth-child(3) { left: 22%; top: 13%; }
+  .dcard:nth-child(4) { left: 2%; top: 30%; }
+  .dcard:nth-child(5) { left: 46%; top: 27%; }
+  .dcard:nth-child(6) { left: 24%; top: 40%; }
+  .dcard:nth-child(7) { left: 5%; top: 54%; }
+  .dcard:nth-child(8) { left: 45%; top: 51%; }
+  .dcard:nth-child(9) { left: 25%; top: 62%; }
+}
+/* Inspiração sem subtítulo: o título encerra o cabeçalho */
+.dragsec-head h2 { margin-bottom: 0; }
+
+/* Menos espaço entre as setas do USE LE e o início da seção Inspiração (as duas são brancas) */
+.useLe { padding-bottom: 2rem; }
+.dragsec { padding-top: 3rem; }
+@media (max-width: 799px) {
+  .useLe { padding-bottom: 1.5rem; }
+  .dragsec { padding-top: 2rem; }
+}
+
+/* Ícone LE (USE LE) primeiro na lista de redes do rodapé: a própria imagem já tem o círculo */
+.footer-social a.footer-social-le { border: 0; padding: 0; overflow: hidden; }
+.footer-social a.footer-social-le img { width: 100%; height: 100%; display: block; }
+.footer-social a.footer-social-le:hover { background: transparent; }
+
+/* Ícone LE: no hover troca para a versão verde preenchida (icon-le3) */
+.footer-social a.footer-social-le { position: relative; }
+.footer-social a.footer-social-le img { grid-area: 1 / 1; transition: opacity 0.25s ease; }
+.footer-social a.footer-social-le .le-hover { opacity: 0; }
+.footer-social a.footer-social-le:hover .le-hover,
+.footer-social a.footer-social-le:focus-visible .le-hover { opacity: 1; }
+
+/* Títulos sobre fundo branco no verde escuro da paleta */
+.dragsec-head h2,
+#depoimentos h2 { color: var(--brand-700); }
+
+/* ===== Padrão de cores dos cabeçalhos de seção =====
+   Fundo branco (Serviços, USE LE, Inspiração, Depoimentos): etiqueta e subtítulo cinza #6b6f64, título verde escuro.
+   Fundo taupe (E-book, Sobre mim, FAQ): etiqueta e subtítulo brancos, título verde escuro.
+   Fundo de foto (O que muda): tudo branco. */
+#servicos .svcard-title, #useLe h2, #cartas h2, #depoimentos h2,
+#ebooks h2, #sobre h2, #faq h2 { color: var(--brand-700); }
+#useLe .eyebrow, #cartas .eyebrow, #depoimentos .eyebrow,
+#useLe .eyebrow-icon, #cartas .eyebrow-icon, #depoimentos .eyebrow-icon,
+#servicos .svcard-desc, #useLe h2 ~ p { color: var(--ink-500); }
+#ebooks .eyebrow, #sobre .eyebrow, #faq .eyebrow,
+#ebooks .eyebrow-icon, #sobre .eyebrow-icon, #faq .eyebrow-icon,
+#faq .faq-intro-text { color: #fff; }
+.mud-eyebrow, .mud-title, .mud-lead { color: #fff; }
